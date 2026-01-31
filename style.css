@@ -95,16 +95,20 @@ body {
     background: white;
     padding: 20px;
     text-align: left;
-    transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275), z-index 0.6s;
+    transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275), z-index 0.6s, opacity 0.5s;
     z-index: 2; /* Inside the pocket */
     border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    opacity: 0;
+    visibility: hidden;
 }
 
 /* Animation when the envelope opens */
 .envelope.open .letter {
     transform: translateY(-130px) scale(1.1);
     z-index: 5; /* Becomes front-most after sliding up */
+    opacity: 1;
+    visibility: visible;
 }
 
 .letter .text {
