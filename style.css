@@ -46,7 +46,7 @@ body {
     position: relative;
     width: 300px;
     height: 200px;
-    background: #fff8f9; /* Whitish Pink Body */
+    background: #ff758f; /* Full Pink Body */
     margin: 0 auto;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -78,9 +78,9 @@ body {
     left: 0;
     width: 0;
     height: 0;
-    border-left: 150px solid #ffccd5; /* Slightly Pinker */
-    border-right: 150px solid #ffccd5;
-    border-bottom: 100px solid #fff0f3; /* Whitish Pink Pocket */
+    border-left: 150px solid #ff8fa3; /* Pink Pocket */
+    border-right: 150px solid #ff8fa3;
+    border-bottom: 100px solid #ff758f; /* Consistent Pink */
     z-index: 3;
     border-radius: 0 0 10px 10px;
 }
