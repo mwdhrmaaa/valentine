@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     overlay.classList.add('show');
                     typeMessage("Happy Valentine! ❤️");
-                    mainButton.innerText = "Enjoy your day! ❤️";
                 }, 100);
             }, 800);
         }
