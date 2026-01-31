@@ -13,9 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (state === 'closed') {
             // Step 1: Open the flap + Bounce Letter
             envelope.classList.add('open');
-            mainButton.innerText = "Pulling Out...";
+            mainButton.innerText = "Opening...";
             mainButton.disabled = true;
             state = 'opened';
+
+            // Hide heart immediately in JS to be safe
+            if (heartSeal) heartSeal.style.display = 'none';
 
             // Wait for bounce-pop animation (1.2s) to finish
             setTimeout(() => {
@@ -26,24 +29,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1300);
 
         } else if (state === 'opened') {
-            // Step 2: Slide the letter up for reading
+            // Step 2: Slide the letter up AND Reveal Overlay (Combined)
             envelope.classList.add('letter-out');
-            mainButton.innerText = "Show Final Surprise";
-            state = 'pulled';
-
-        } else if (state === 'pulled') {
-            // Step 3: Reveal the final message overlay
-            mainButton.innerText = "Revealing...";
+            mainButton.innerText = "Reading...";
             mainButton.disabled = true;
+            state = 'read';
 
+            // Wait for pull-up animation then show overlay
             setTimeout(() => {
                 overlay.classList.remove('hidden');
                 setTimeout(() => {
                     overlay.classList.add('show');
                     typeMessage("Happy Valentine! ❤️");
+                    mainButton.innerText = "Enjoy your day! ❤️";
                 }, 100);
-            }, 500);
-            state = 'revealed';
+            }, 800);
         }
     }
 
@@ -58,6 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
             envelope.classList.remove('letter-out');
             const letter = document.querySelector('.letter');
             letter.classList.remove('on-top');
+            
+            // Show heart again if reset
+            if (heartSeal) heartSeal.style.display = 'block';
+
             mainButton.innerText = "Open This Letter";
             mainButton.disabled = false;
             valentineText.innerHTML = "";
