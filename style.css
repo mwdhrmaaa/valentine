@@ -76,13 +76,33 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 0;
-    height: 0;
-    border-left: 150px solid #ff4d6d; /* Same as body */
-    border-right: 150px solid #ff4d6d;
-    border-bottom: 110px solid #ff4d6d; /* Taller pocket bottom to hide letter better */
+    width: 300px;
+    height: 200px;
     z-index: 3;
-    border-radius: 0 0 10px 10px;
+}
+
+.envelope .front::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-left: 150px solid #ff4d6d;
+    border-right: 150px solid transparent;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid #ff4d6d;
+    border-radius: 0 0 0 10px;
+}
+
+.envelope .front::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-right: 150px solid #ff4d6d;
+    border-left: 150px solid transparent;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid #ff4d6d;
+    border-radius: 0 0 10px 0;
 }
 
 /* The Letter */
