@@ -88,6 +88,15 @@ body {
     transform: translateY(-80px);
 }
 
+.letter .text {
+    opacity: 0;
+    transition: opacity 0.5s ease 0.5s;
+}
+
+.envelope.open .letter .text {
+    opacity: 1;
+}
+
 .letter h1 {
     font-family: 'Dancing Script', cursive;
     font-size: 1.5rem;
