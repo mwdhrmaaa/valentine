@@ -19,8 +19,7 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Move everything lower */
-    padding-bottom: 15vh; /* Safe space from bottom */
+    align-items: center;
     overflow: hidden;
 }
 
@@ -30,7 +29,6 @@ body {
     width: 100%;
     max-width: 600px;
     padding: 20px;
-    margin-bottom: 20px;
 }
 
 .envelope-wrapper {
@@ -115,7 +113,7 @@ body {
 
 /* State when the letter is pulled out fully */
 .envelope.letter-out .letter {
-    transform: translateY(-230px) scale(1.05); /* Slide up further to be "above" the envelope */
+    transform: translateY(-160px) scale(1.05);
     opacity: 1;
     visibility: visible;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
