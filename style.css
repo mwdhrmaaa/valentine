@@ -141,7 +141,7 @@ body {
     height: 30px;
     background: var(--primary-love);
     transform: translate(-50%, -50%) rotate(45deg);
-    z-index: 100; /* Paling atas */
+    z-index: 1000; /* Absolute top-most within envelope context */
     transition: opacity 0.3s ease;
     box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3);
 }
