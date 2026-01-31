@@ -97,66 +97,51 @@ body {
     background: white;
     padding: 20px;
     text-align: left;
-    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), z-index 0.6s;
-    z-index: 2;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), z-index 0.6s, opacity 0.4s;
+    z-index: 1; /* Behind everything */
     border-radius: 5px;
-    opacity: 1;
+    opacity: 0;
     visibility: visible;
     transform: translateY(0);
 }
 
+.letter.no-transition {
+    transition: none !important;
+}
+
 /* Base state for when flap is opening: trigger bounce pop */
 .envelope.open .letter {
+    opacity: 1;
     animation: bounce-pop 1.2s forwards;
 }
 
 /* Keyframes to make letter go up, then down, and land on top */
 @keyframes bounce-pop {
-    0% {
-        transform: translateY(0);
-        z-index: 2;
-    }
-    50% {
-        transform: translateY(-120px);
-        z-index: 2;
-    }
-    51% {
-        z-index: 10; /* Switch to front at peak */
-    }
-    100% {
-        transform: translateY(0);
-        z-index: 10;
-    }
+    0% { transform: translateY(0); z-index: 1; opacity: 1; }
+    49% { z-index: 1; }
+    50% { transform: translateY(-130px); z-index: 10; opacity: 1; }
+    100% { transform: translateY(0); z-index: 10; opacity: 1; }
 }
 
 /* Forcing it to stay on top after animation */
 .letter.on-top {
-    z-index: 10;
-    animation: none;
-    transform: translateY(0);
+    z-index: 10 !important;
+    animation: none !important;
+    transform: translateY(0) !important;
+    opacity: 1 !important;
 }
 
 /* Reverse Animation for closing */
 .letter.closing {
-    animation: bounce-reverse 1.2s forwards;
+    animation: bounce-reverse 1.2s forwards !important;
+    opacity: 1 !important;
 }
 
 @keyframes bounce-reverse {
-    0% {
-        transform: translateY(0);
-        z-index: 10;
-    }
-    50% {
-        transform: translateY(-120px);
-        z-index: 10;
-    }
-    51% {
-        z-index: 2; /* Switch to inside at peak */
-    }
-    100% {
-        transform: translateY(0);
-        z-index: 2;
-    }
+    0% { transform: translateY(0); z-index: 10; opacity: 1; }
+    49% { z-index: 10; }
+    50% { transform: translateY(-130px); z-index: 1; opacity: 1; }
+    100% { transform: translateY(0); z-index: 1; opacity: 1; }
 }
 
 /* State when the letter is pulled out fully for reading */
