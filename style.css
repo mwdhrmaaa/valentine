@@ -95,7 +95,9 @@ body {
     left: 10px;
     width: 280px;
     height: 180px;
-    background: linear-gradient(to bottom, #fdf5e6 0%, #f5deb3 100%);
+    background: #fdf5e6; /* Fallback */
+    background: linear-gradient(to bottom, #fdf5e6 0%, #f1e0c6 100%),
+                repeating-linear-gradient(transparent, transparent 19px, rgba(222, 184, 135, 0.1) 20px);
     padding: 20px;
     text-align: left;
     transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), z-index 0.6s, opacity 0.4s;
@@ -107,7 +109,8 @@ body {
     will-change: transform;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05), inset 0 0 30px rgba(222, 184, 135, 0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1), inset 0 0 50px rgba(222, 184, 135, 0.3);
+    border: 1px solid #e8d5b5;
 }
 
 .letter.no-transition {
