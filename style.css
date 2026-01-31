@@ -112,11 +112,15 @@ body {
 
 /* State when the letter is pulled out fully */
 .envelope.letter-out .letter {
-    transform: translateY(-160px) scale(1.05); /* Slide up and stay clear of the pocket */
-    z-index: 5;
+    transform: translateY(-165px) scale(1.05);
     opacity: 1;
     visibility: visible;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Class to bring letter to front-most layer AFTER animation finishes */
+.envelope.letter-out .letter.front-layer {
+    z-index: 10;
 }
 
 .letter .text {

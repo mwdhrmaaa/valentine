@@ -20,6 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
             envelope.classList.add('letter-out');
             mainButton.innerText = "Read Special Message";
             state = 'pulled';
+            
+            // Bring to front-layer after animation finishes (0.8s transition in CSS)
+            setTimeout(() => {
+                const letter = document.querySelector('.letter');
+                letter.classList.add('front-layer');
+            }, 800);
         } else if (state === 'pulled') {
             // Step 3: Reveal the final message
             mainButton.innerText = "Revealing...";
@@ -45,6 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
             overlay.classList.add('hidden');
             envelope.classList.remove('open');
             envelope.classList.remove('letter-out');
+            const letter = document.querySelector('.letter');
+            letter.classList.remove('front-layer');
             mainButton.innerText = "Open This Letter";
             mainButton.disabled = false;
             valentineText.innerHTML = "";
