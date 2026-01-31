@@ -46,7 +46,7 @@ body {
     position: relative;
     width: 300px;
     height: 200px;
-    background: #ff4d6d; /* Vibrant Pink Body */
+    background: #ff758f; /* Back of envelope */
     margin: 0 auto;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
@@ -58,51 +58,32 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 4; /* On top of front flap initially */
+    z-index: 4;
     border-left: 150px solid transparent;
     border-right: 150px solid transparent;
-    border-top: 100px solid #c9184a; /* Deep Red/Pink Flap */
+    border-top: 110px solid #c9184a; /* Deep Red/Pink Flap */
     transform-origin: top;
     transition: transform 0.6s ease, z-index 0.6s;
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
 }
 
 .envelope.open::before {
     transform: rotateX(180deg);
-    z-index: 0; /* Moves behind everything when open */
+    z-index: 0;
 }
 
-/* The Front Flap (Pocket) */
+/* The Front Flap (Pocket) with a sharp V-notch */
 .envelope .front {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 300px;
     height: 200px;
+    background: #ff4d6d; /* Solid Pink Front */
     z-index: 3;
-}
-
-.envelope .front::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    border-left: 150px solid #ff4d6d;
-    border-right: 150px solid transparent;
-    border-top: 100px solid transparent;
-    border-bottom: 100px solid #ff4d6d;
-    border-radius: 0 0 0 10px;
-}
-
-.envelope .front::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border-right: 150px solid #ff4d6d;
-    border-left: 150px solid transparent;
-    border-top: 100px solid transparent;
-    border-bottom: 100px solid #ff4d6d;
-    border-radius: 0 0 10px 0;
+    clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
+    border-radius: 0 0 10px 10px;
+    box-shadow: inset 0 -5px 15px rgba(0,0,0,0.05);
 }
 
 /* The Letter */
