@@ -6,22 +6,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeButton = document.getElementById('closeButton');
     const heartsContainer = document.getElementById('heartsContainer');
 
-    mainButton.addEventListener('click', () => {
-        // Open the envelope
-        envelope.classList.add('open');
-        
-        // Change button text
-        mainButton.innerText = "Revealing...";
-        mainButton.disabled = true;
+    let state = 'closed'; // closed -> opened -> revealed
 
-        // Show overlay after a delay
-        setTimeout(() => {
-            overlay.classList.remove('hidden');
+    mainButton.addEventListener('click', () => {
+        if (state === 'closed') {
+            // Step 1: Open the envelope
+            envelope.classList.add('open');
+            mainButton.innerText = "Show Special Message";
+            state = 'opened';
+        } else if (state === 'opened') {
+            // Step 2: Show the final message
+            mainButton.innerText = "Revealing...";
+            mainButton.disabled = true;
+
             setTimeout(() => {
-                overlay.classList.add('show');
-                typeMessage("Happy Valentine! ❤️");
-            }, 100);
-        }, 1200);
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    overlay.classList.add('show');
+                    typeMessage("Happy Valentine! ❤️");
+                }, 100);
+            }, 500);
+            state = 'revealed';
+        }
     });
 
     closeButton.addEventListener('click', () => {
@@ -32,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainButton.innerText = "Open This Letter";
             mainButton.disabled = false;
             valentineText.innerHTML = "";
+            state = 'closed';
         }, 500);
     });
 
