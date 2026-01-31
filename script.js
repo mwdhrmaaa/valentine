@@ -59,28 +59,31 @@ document.addEventListener('DOMContentLoaded', () => {
             // Step 1: Slide down to surface
             envelope.classList.remove('letter-out');
             
-            // Wait for slide down transition (0.6s)
+            // Wait for slide down transition (shorter wait for snappier feel)
             setTimeout(() => {
                 // Step 2: Disable transition and Trigger Reverse Pop
                 letter.classList.add('no-transition');
                 letter.classList.remove('on-top');
                 letter.classList.add('closing');
                 
-                // Step 3: Wait for reverse pop (1.2s)
+                // Step 3: Wait for reverse pop peak to switch layers, then land
                 setTimeout(() => {
                     letter.classList.remove('closing');
                     letter.classList.remove('no-transition');
                     envelope.classList.remove('open'); // Close Flap
                     
-                    if (heartSeal) heartSeal.style.display = 'block';
+                    // Step 4: Show heart again AFTER flap closes (0.6s flap transition)
+                    setTimeout(() => {
+                        if (heartSeal) heartSeal.style.display = 'block';
+                        mainButton.innerText = "Open This Letter";
+                        mainButton.disabled = false;
+                        state = 'closed';
+                    }, 600);
 
-                    mainButton.innerText = "Open This Letter";
-                    mainButton.disabled = false;
                     valentineText.innerHTML = "";
                     heartsContainer.innerHTML = "";
-                    state = 'closed';
-                }, 1250);
-            }, 650);
+                }, 1200);
+            }, 600);
         }, 500);
     });
 
