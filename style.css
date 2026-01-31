@@ -89,7 +89,7 @@ body {
 /* The Letter */
 .letter {
     position: absolute;
-    bottom: 5px;
+    bottom: 10px;
     left: 10px;
     width: 280px;
     height: 180px;
@@ -101,14 +101,14 @@ body {
     border-radius: 5px;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(160px); /* Hidden deep inside initially */
+    transform: translateY(120px); /* Hidden inside the pocket */
 }
 
 /* State when the flap is open (peeking out) */
 .envelope.open .letter {
     opacity: 1;
     visibility: visible;
-    transform: translateY(110px); /* Peeking triangle from deep notch */
+    transform: translateY(30px); /* Peek out higher for a better triangular look */
 }
 
 /* State when the letter is pulled out fully */
