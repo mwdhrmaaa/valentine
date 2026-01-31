@@ -80,7 +80,7 @@ body {
     height: 0;
     border-left: 150px solid #ff4d6d; /* Same as body */
     border-right: 150px solid #ff4d6d;
-    border-bottom: 100px solid #ff4d6d;
+    border-bottom: 110px solid #ff4d6d; /* Taller pocket bottom to hide letter better */
     z-index: 3;
     border-radius: 0 0 10px 10px;
 }
@@ -106,12 +106,12 @@ body {
 .envelope.open .letter {
     opacity: 1;
     visibility: visible;
-    transform: translateY(-20px); /* Peek out slightly */
+    transform: translateY(-15px); /* Peek out even less for a sharper "V" look */
 }
 
 /* State when the letter is pulled out fully */
 .envelope.letter-out .letter {
-    transform: translateY(-150px) scale(1.05);
+    transform: translateY(-160px) scale(1.05); /* Slide up and stay clear of the pocket */
     z-index: 5;
     opacity: 1;
     visibility: visible;
