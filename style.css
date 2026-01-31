@@ -89,7 +89,7 @@ body {
 /* The Letter */
 .letter {
     position: absolute;
-    bottom: 10px;
+    bottom: 20px; /* Aligned with top of envelope (20 + 180 = 200) */
     left: 10px;
     width: 280px;
     height: 180px;
@@ -112,8 +112,10 @@ body {
 /* Hide heart when envelope is opened */
 .envelope.open + .heart {
     opacity: 0;
+    visibility: hidden;
+    z-index: -1;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s;
 }
 
 /* State when the letter is pulled out fully */
