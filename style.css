@@ -156,7 +156,7 @@ body {
 
 .heart {
     position: absolute;
-    top: 50%;
+    top: 60%; /* Lowered slightly as requested */
     left: 50%;
     width: 30px;
     height: 30px;
