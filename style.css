@@ -81,7 +81,7 @@ body {
     height: 200px;
     background: #ff4d6d; /* Solid Pink Front */
     z-index: 3;
-    clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 50% 85%, 100% 0, 100% 100%, 0 100%);
     border-radius: 0 0 10px 10px;
     box-shadow: inset 0 -5px 15px rgba(0,0,0,0.05);
 }
@@ -101,13 +101,14 @@ body {
     border-radius: 5px;
     opacity: 0;
     visibility: hidden;
+    transform: translateY(160px); /* Hidden deep inside initially */
 }
 
 /* State when the flap is open (peeking out) */
 .envelope.open .letter {
     opacity: 1;
     visibility: visible;
-    transform: translateY(-15px); /* Peek out even less for a sharper "V" look */
+    transform: translateY(110px); /* Peeking triangle from deep notch */
 }
 
 /* State when the letter is pulled out fully */
