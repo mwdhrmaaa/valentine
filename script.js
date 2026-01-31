@@ -11,23 +11,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleNextStep() {
         if (state === 'closed') {
-            // Step 1: Open the flap
+            // Step 1: Open the flap + Bounce Letter
             envelope.classList.add('open');
-            mainButton.innerText = "Take Out Letter";
+            mainButton.innerText = "Pulling Out...";
+            mainButton.disabled = true;
             state = 'opened';
-        } else if (state === 'opened') {
-            // Step 2: Slide the letter out
-            envelope.classList.add('letter-out');
-            mainButton.innerText = "Read Special Message";
-            state = 'pulled';
-            
-            // Bring to front-layer after animation finishes (0.8s transition in CSS)
+
+            // Wait for bounce-pop animation (1.2s) to finish
             setTimeout(() => {
                 const letter = document.querySelector('.letter');
-                letter.classList.add('front-layer');
-            }, 800);
+                letter.classList.add('on-top'); // Keep it on the front layer
+                mainButton.innerText = "Read Special Message";
+                mainButton.disabled = false;
+            }, 1300);
+
+        } else if (state === 'opened') {
+            // Step 2: Slide the letter up for reading
+            envelope.classList.add('letter-out');
+            mainButton.innerText = "Show Final Surprise";
+            state = 'pulled';
+
         } else if (state === 'pulled') {
-            // Step 3: Reveal the final message
+            // Step 3: Reveal the final message overlay
             mainButton.innerText = "Revealing...";
             mainButton.disabled = true;
 
@@ -52,10 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
             envelope.classList.remove('open');
             envelope.classList.remove('letter-out');
             const letter = document.querySelector('.letter');
-            letter.classList.remove('front-layer');
+            letter.classList.remove('on-top');
             mainButton.innerText = "Open This Letter";
             mainButton.disabled = false;
             valentineText.innerHTML = "";
+            heartsContainer.innerHTML = "";
             state = 'closed';
         }, 500);
     });
