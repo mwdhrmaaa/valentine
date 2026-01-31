@@ -95,8 +95,8 @@ body {
     left: 10px;
     width: 280px;
     height: 180px;
-    background: #e0d070; /* User Request Color */
-    background: linear-gradient(135deg, #e0d070 0%, #c5b550 100%),
+    background: #e0d0a7; /* Updated User Request Color */
+    background: linear-gradient(135deg, #e0d0a7 0%, #d2b48c 100%),
                 repeating-linear-gradient(transparent, transparent 19px, rgba(139, 69, 19, 0.2) 20px);
     padding: 20px;
     text-align: left;
@@ -255,8 +255,8 @@ body {
 }
 
 .message-card {
-    background: #e0d070; /* Same User Request Color */
-    background: linear-gradient(135deg, #e0d070 0%, #c5b550 100%),
+    background: #e0d0a7; /* Updated User Request Color */
+    background: linear-gradient(135deg, #e0d0a7 0%, #d2b48c 100%),
                 repeating-linear-gradient(transparent, transparent 24px, rgba(139, 69, 19, 0.1) 25px);
     padding: 50px;
     border-radius: 15px; /* Slightly sharper for paper look */
