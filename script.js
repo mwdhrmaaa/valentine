@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const valentineText = document.getElementById('valentineText');
     const closeButton = document.getElementById('closeButton');
     const heartsContainer = document.getElementById('heartsContainer');
-
-    const heartsContainer = document.getElementById('heartsContainer');
     const heartSeal = document.querySelector('.heart');
 
     let state = 'closed'; // closed -> opened -> pulled -> revealed
