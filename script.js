@@ -6,9 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeButton = document.getElementById('closeButton');
     const heartsContainer = document.getElementById('heartsContainer');
 
+    const heartsContainer = document.getElementById('heartsContainer');
+    const heartSeal = document.querySelector('.heart');
+
     let state = 'closed'; // closed -> opened -> pulled -> revealed
 
-    mainButton.addEventListener('click', () => {
+    function handleNextStep() {
         if (state === 'closed') {
             // Step 1: Open the flap
             envelope.classList.add('open');
@@ -33,7 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
             state = 'revealed';
         }
-    });
+    }
+
+    mainButton.addEventListener('click', handleNextStep);
+    heartSeal.addEventListener('click', handleNextStep);
 
     closeButton.addEventListener('click', () => {
         overlay.classList.remove('show');
