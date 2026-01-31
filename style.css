@@ -95,9 +95,9 @@ body {
     left: 10px;
     width: 280px;
     height: 180px;
-    background: #f5deb3; /* Wheat Fallback */
-    background: linear-gradient(to bottom, #f5deb3 0%, #e1c699 100%),
-                repeating-linear-gradient(transparent, transparent 19px, rgba(139, 69, 19, 0.15) 20px);
+    background: #eaddca; /* Almond/Antique Base */
+    background: linear-gradient(135deg, #eaddca 0%, #d2b48c 100%),
+                repeating-linear-gradient(transparent, transparent 19px, rgba(139, 69, 19, 0.2) 20px);
     padding: 20px;
     text-align: left;
     transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), z-index 0.6s, opacity 0.4s;
@@ -109,9 +109,9 @@ body {
     will-change: transform;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15), 
-                inset 0 0 60px rgba(139, 69, 19, 0.25);
-    border: 1px solid #d2b48c; /* Tan border */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2), 
+                inset 0 0 60px rgba(101, 67, 33, 0.3);
+    border: 1px solid #c19a6b;
 }
 
 .letter.no-transition {
@@ -255,11 +255,14 @@ body {
 }
 
 .message-card {
-    background: var(--glass-bg);
+    background: #eaddca; /* Same Antique Base */
+    background: linear-gradient(135deg, #eaddca 0%, #d2b48c 100%),
+                repeating-linear-gradient(transparent, transparent 24px, rgba(139, 69, 19, 0.1) 25px);
     padding: 50px;
-    border-radius: 30px;
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+    border-radius: 15px; /* Slightly sharper for paper look */
+    border: 2px solid #c19a6b;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25), 
+                inset 0 0 100px rgba(101, 67, 33, 0.2);
     max-width: 90%;
     position: relative;
     transform: scale(0.8);
