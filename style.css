@@ -130,10 +130,33 @@ body {
 }
 
 /* Forcing it to stay on top after animation */
-.envelope.open .letter.on-top {
+.letter.on-top {
     z-index: 10;
-    animation: none; /* Stop animation and keep state */
+    animation: none;
     transform: translateY(0);
+}
+
+/* Reverse Animation for closing */
+.letter.closing {
+    animation: bounce-reverse 1.2s forwards;
+}
+
+@keyframes bounce-reverse {
+    0% {
+        transform: translateY(0);
+        z-index: 10;
+    }
+    50% {
+        transform: translateY(-120px);
+        z-index: 10;
+    }
+    51% {
+        z-index: 2; /* Switch to inside at peak */
+    }
+    100% {
+        transform: translateY(0);
+        z-index: 2;
+    }
 }
 
 /* State when the letter is pulled out fully for reading */

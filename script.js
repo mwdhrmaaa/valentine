@@ -52,21 +52,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeButton.addEventListener('click', () => {
         overlay.classList.remove('show');
+        
+        // Wait for overlay fade out
         setTimeout(() => {
             overlay.classList.add('hidden');
-            envelope.classList.remove('open');
-            envelope.classList.remove('letter-out');
-            const letter = document.querySelector('.letter');
-            letter.classList.remove('on-top');
             
-            // Show heart again if reset
-            if (heartSeal) heartSeal.style.display = 'block';
+            // Step 1: Slide letter from "read" position (-160px) back to envelope surface (0)
+            envelope.classList.remove('letter-out');
+            
+            // Step 2: Trigger Reverse Pop (Pop out of front, land in pocket)
+            setTimeout(() => {
+                const letter = document.querySelector('.letter');
+                letter.classList.remove('on-top');
+                letter.classList.add('closing');
+                
+                // Step 3: Wait for reverse pop (1.2s)
+                setTimeout(() => {
+                    letter.classList.remove('closing');
+                    envelope.classList.remove('open'); // Close Flap
+                    
+                    // Show heart again
+                    if (heartSeal) heartSeal.style.display = 'block';
 
-            mainButton.innerText = "Open This Letter";
-            mainButton.disabled = false;
-            valentineText.innerHTML = "";
-            heartsContainer.innerHTML = "";
-            state = 'closed';
+                    mainButton.innerText = "Open This Letter";
+                    mainButton.disabled = false;
+                    valentineText.innerHTML = "";
+                    heartsContainer.innerHTML = "";
+                    state = 'closed';
+                }, 1200);
+            }, 600); // Wait for letter-out slide down
         }, 500);
     });
 
