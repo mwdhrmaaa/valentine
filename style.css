@@ -1,9 +1,9 @@
 :root {
-    --primary-love: #ff4d6d;
-    --secondary-love: #ff758f;
-    --bg-gradient: linear-gradient(135deg, #fff0f3 0%, #ffb3c1 100%);
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.3);
+    --primary-love: #e63946; /* Strong Red */
+    --secondary-love: #ff4d6d; /* Vibrant Pink/Red */
+    --bg-gradient: linear-gradient(135deg, #ffffff 0%, #ffe5ec 100%);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 77, 109, 0.2);
     --text-color: #590d22;
 }
 
@@ -46,7 +46,7 @@ body {
     position: relative;
     width: 300px;
     height: 200px;
-    background: #ffb3c1; /* Back part of envelope */
+    background: #ff758f; /* Back part of envelope (Pink) */
     margin: 0 auto;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -61,7 +61,7 @@ body {
     z-index: 4; /* On top of front flap initially */
     border-left: 150px solid transparent;
     border-right: 150px solid transparent;
-    border-top: 100px solid #ffccd5;
+    border-top: 100px solid #ff4d6d; /* Darker Pink/Red flap */
     transform-origin: top;
     transition: transform 0.6s ease, z-index 0.6s;
 }
@@ -78,8 +78,8 @@ body {
     left: 0;
     width: 0;
     height: 0;
-    border-left: 150px solid #ffccd5;
-    border-right: 150px solid #ffccd5;
+    border-left: 150px solid #ff8fa3;
+    border-right: 150px solid #ff8fa3;
     border-bottom: 100px solid #ffb3c1;
     z-index: 3;
     border-radius: 0 0 10px 10px;
