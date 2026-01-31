@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Letter for You</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <h1>Dear Someone Special,</h1>
+                        <p>I just wanted to take a moment to tell you how much you mean to me...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+        
+        <button id="mainButton" class="btn-premium">Open This Letter</button>
+        
+        <div id="messageOverlay" class="overlay hidden">
+            <div class="message-card">
+                <h2 id="valentineText"></h2>
+                <div class="hearts-container" id="heartsContainer"></div>
+                <button id="closeButton" class="btn-close">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
