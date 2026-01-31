@@ -17,8 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
             mainButton.disabled = true;
             state = 'opened';
 
-            // Hide heart immediately in JS to be safe
-            if (heartSeal) heartSeal.style.display = 'none';
+            // Hide heart definitively
+            if (heartSeal) heartSeal.style.opacity = '0';
+            setTimeout(() => { if (heartSeal) heartSeal.style.display = 'none'; }, 300);
 
             // Wait for bounce-pop animation (1.2s) to finish
             setTimeout(() => {
@@ -41,6 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     overlay.classList.add('show');
                     typeMessage("Happy Valentine! ❤️");
+                    // Hide main button while reading for a cleaner look
+                    mainButton.style.opacity = '0';
+                    setTimeout(() => { mainButton.style.visibility = 'hidden'; }, 300);
                 }, 100);
             }, 800);
         }
@@ -56,6 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             overlay.classList.add('hidden');
             
+            // Re-show main button
+            mainButton.style.visibility = 'visible';
+            mainButton.style.opacity = '1';
+            mainButton.innerText = "Closing...";
+            mainButton.disabled = true;
+
             // Step 1: Slide down to surface
             envelope.classList.remove('letter-out');
             
@@ -74,7 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     // Step 4: Show heart again AFTER flap closes (0.6s flap transition)
                     setTimeout(() => {
-                        if (heartSeal) heartSeal.style.display = 'block';
+                        if (heartSeal) {
+                            heartSeal.style.display = 'block';
+                            setTimeout(() => { heartSeal.style.opacity = '1'; }, 50);
+                        }
                         mainButton.innerText = "Open This Letter";
                         mainButton.disabled = false;
                         state = 'closed';
