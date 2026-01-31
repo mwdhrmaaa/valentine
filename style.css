@@ -108,7 +108,7 @@ body {
 .envelope.open .letter {
     opacity: 1;
     visibility: visible;
-    transform: translateY(30px); /* Peek out higher for a better triangular look */
+    transform: translateY(0); /* Align with the top of the envelope pocket */
 }
 
 /* State when the letter is pulled out fully */
