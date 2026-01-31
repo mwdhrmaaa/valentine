@@ -46,7 +46,7 @@ body {
     position: relative;
     width: 300px;
     height: 200px;
-    background: #ff4d6d; /* Consolidated Vibrant Pink */
+    background: #e63946; /* Stronger Red for the back */
     margin: 0 auto;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
@@ -61,7 +61,7 @@ body {
     z-index: 4;
     border-left: 150px solid transparent;
     border-right: 150px solid transparent;
-    border-top: 130px solid #c9184a; /* Taller flap for better coverage */
+    border-top: 130px solid #c9184a; /* Taller flap */
     transform-origin: top;
     transition: transform 0.6s ease, z-index 0.6s;
     filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
@@ -72,16 +72,17 @@ body {
     z-index: 0;
 }
 
-/* The Front Flap (Pocket) with a sharp V-notch */
+/* The Front Flap (Pocket) - Redesigned for full depth */
 .envelope .front {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 300px;
     height: 200px;
-    background: #ff4d6d; /* Solid Pink Front */
+    background: #ff4d6d; /* Vibrant Pink Front */
     z-index: 3;
-    clip-path: polygon(0 0, 50% 60%, 100% 0, 100% 100%, 0 100%); /* Adjusted notch for closure */
+    /* This polygon creates a sharp V and covers everything else */
+    clip-path: polygon(0 0, 15% 0, 50% 40%, 85% 0, 100% 0, 100% 100%, 0 100%);
     border-radius: 0 0 10px 10px;
     box-shadow: inset 0 -5px 15px rgba(0,0,0,0.05);
 }
