@@ -88,27 +88,27 @@ body {
 /* The Letter */
 .letter {
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     left: 10px;
     width: 280px;
     height: 180px;
     background: white;
     padding: 20px;
     text-align: left;
-    transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275), z-index 0.6s, opacity 0.5s;
+    transition: transform 0.8s ease-in-out, z-index 0.6s, opacity 0.4s;
     z-index: 2; /* Inside the pocket */
     border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     opacity: 0;
     visibility: hidden;
 }
 
-/* Animation when the envelope opens */
-.envelope.open .letter {
-    transform: translateY(-130px) scale(1.1);
-    z-index: 5; /* Becomes front-most after sliding up */
+/* State when the letter is pulled out */
+.envelope.letter-out .letter {
+    transform: translateY(-150px) scale(1.05); /* Slide up a bit more */
+    z-index: 5;
     opacity: 1;
     visibility: visible;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .letter .text {
@@ -116,7 +116,7 @@ body {
     transition: opacity 0.5s ease 0.5s;
 }
 
-.envelope.open .letter .text {
+.envelope.letter-out .letter .text {
     opacity: 1;
 }
 
